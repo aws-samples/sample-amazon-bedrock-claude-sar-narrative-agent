@@ -1,0 +1,7 @@
+{
+  "case_file": "sample_data/cases/case_003_legitimate.json",
+  "expected_recommendation": "recommend_no_file",
+  "expected_typology_keywords": [],
+  "expected_subject_names": ["Beacon Analytics Consulting LLC"],
+  "min_total_suspicious_amount_usd": 0
+}

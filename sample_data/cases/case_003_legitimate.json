@@ -1,0 +1,67 @@
+{
+  "case_id": "CASE-2026-01044",
+  "opened_date": "2026-08-11",
+  "priority": "Low",
+  "alert_ids": ["ALRT-563780"],
+  "analyst_notes": "Monitoring flagged a new counterparty on an outbound wire. Customer is a consulting firm with a stable, invoice-driven profile. Assigned for SAR determination.",
+  "subjects": [
+    {
+      "subject_id": "CUST-9910",
+      "name": "Beacon Analytics Consulting LLC",
+      "type": "Business",
+      "role": "Primary account holder",
+      "kyc": {
+        "onboarded": "2021-09-15",
+        "business_type": "Professional Services - Management Consulting",
+        "expected_monthly_cash_volume_usd": 2000,
+        "expected_monthly_total_volume_usd": 120000,
+        "risk_rating": "Low",
+        "beneficial_owners": [
+          {"name": "Priya Raman", "ownership_pct": 60, "pep": false},
+          {"name": "Daniel Osei", "ownership_pct": 40, "pep": false}
+        ]
+      },
+      "watchlist_hits": []
+    }
+  ],
+  "accounts": [
+    {
+      "account_id": "ACCT-88300",
+      "subject_id": "CUST-9910",
+      "type": "Business Checking",
+      "opened": "2021-09-15",
+      "currency": "USD",
+      "status": "Open"
+    }
+  ],
+  "related_parties": [
+    {
+      "party_id": "EXT-5120",
+      "name": "Cedar Ridge Software Inc",
+      "relationship": "Wire beneficiary (new)",
+      "jurisdiction": "United States",
+      "notes": "New SaaS vendor; contract on file dated 2026-07-01."
+    }
+  ],
+  "prior_sars": [],
+  "transactions": [
+    {"txn_id": "TXN-200001", "account_id": "ACCT-88300", "date": "2026-07-01", "type": "wire_in", "amount_usd": 42000, "channel": "wire", "counterparty": "Global Retail Corp (client)", "location": "United States", "notes": "Client invoice INV-2201"},
+    {"txn_id": "TXN-200002", "account_id": "ACCT-88300", "date": "2026-07-03", "type": "ach_debit", "amount_usd": 18500, "channel": "ach", "counterparty": "ADP Payroll", "location": "N/A", "notes": "Payroll"},
+    {"txn_id": "TXN-200003", "account_id": "ACCT-88300", "date": "2026-07-07", "type": "ach_debit", "amount_usd": 6200, "channel": "ach", "counterparty": "WeWork", "location": "N/A", "notes": "Office lease"},
+    {"txn_id": "TXN-200004", "account_id": "ACCT-88300", "date": "2026-07-10", "type": "cash_deposit", "amount_usd": 1200, "channel": "branch", "counterparty": null, "location": "Branch #501 Austin TX", "notes": "Reimbursed expenses - petty cash"},
+    {"txn_id": "TXN-200005", "account_id": "ACCT-88300", "date": "2026-07-14", "type": "wire_in", "amount_usd": 38000, "channel": "wire", "counterparty": "Meridian Health Systems (client)", "location": "United States", "notes": "Client invoice INV-2202"},
+    {"txn_id": "TXN-200006", "account_id": "ACCT-88300", "date": "2026-07-16", "type": "wire_out", "amount_usd": 9500, "channel": "wire", "counterparty": "Cedar Ridge Software Inc", "location": "United States", "notes": "SaaS subscription - new vendor, contract on file"},
+    {"txn_id": "TXN-200007", "account_id": "ACCT-88300", "date": "2026-07-18", "type": "card_purchase", "amount_usd": 2300, "channel": "card", "counterparty": "Delta Air Lines", "location": "N/A", "notes": "Business travel"},
+    {"txn_id": "TXN-200008", "account_id": "ACCT-88300", "date": "2026-07-25", "type": "ach_debit", "amount_usd": 18500, "channel": "ach", "counterparty": "ADP Payroll", "location": "N/A", "notes": "Payroll"},
+    {"txn_id": "TXN-200009", "account_id": "ACCT-88300", "date": "2026-07-29", "type": "wire_in", "amount_usd": 27000, "channel": "wire", "counterparty": "Northstar Logistics (client)", "location": "United States", "notes": "Client invoice INV-2203"}
+  ],
+  "alerts": [
+    {
+      "alert_id": "ALRT-563780",
+      "date": "2026-07-16",
+      "rule": "New counterparty on outbound wire",
+      "account_id": "ACCT-88300",
+      "description": "First outbound wire to Cedar Ridge Software Inc, a counterparty not previously seen on this account."
+    }
+  ]
+}

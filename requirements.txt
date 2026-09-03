@@ -1,0 +1,12 @@
+# Core runtime dependencies.
+# The tool runs OFFLINE with the built-in mock provider and needs none of these.
+# Install the extra(s) for the provider you want to use against a real model.
+
+# --- Amazon Bedrock provider (default for real runs) ---
+boto3>=1.34.0
+
+# --- Anthropic API provider (optional fallback) ---
+anthropic>=0.39.0
+
+# --- Schema validation ---
+jsonschema>=4.0.0

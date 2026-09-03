@@ -1,0 +1,104 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 560" font-family="Segoe UI, Helvetica, Arial, sans-serif">
+  <defs>
+    <marker id="ah" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#7c5cff"/>
+    </marker>
+    <marker id="ahs" markerWidth="10" markerHeight="10" refX="0" refY="3" orient="auto-start-reverse" markerUnits="strokeWidth">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#01a88d"/>
+    </marker>
+    <filter id="sh" x="-10%" y="-10%" width="120%" height="130%">
+      <feDropShadow dx="0" dy="3" stdDeviation="5" flood-color="#1b2030" flood-opacity="0.10"/>
+    </filter>
+  </defs>
+
+  <rect x="0" y="0" width="1120" height="560" rx="18" fill="#f7f8fc"/>
+  <text x="40" y="48" font-size="26" font-weight="700" fill="#1b2030">AML SAR Investigation Drafter — Reference Architecture</text>
+  <text x="41" y="74" font-size="14" fill="#5b6473">Claude on Amazon Bedrock · private (not world-accessible) · human-in-the-loop</text>
+
+  <!-- ===== main request flow ===== -->
+  <!-- Analyst -->
+  <rect x="40" y="104" width="176" height="96" rx="12" fill="#ffffff" stroke="#e2e6ef" stroke-width="1.5" filter="url(#sh)"/>
+  <circle cx="62" cy="134" r="6" fill="#545b64"/>
+  <text x="78" y="138" font-size="15" font-weight="700" fill="#1b2030">Analyst</text>
+  <text x="58" y="164" font-size="11.5" fill="#5b6473">Browser · branded sign-in</text>
+  <text x="58" y="182" font-size="11.5" fill="#5b6473">(cookie session)</text>
+
+  <!-- CloudFront -->
+  <rect x="268" y="104" width="200" height="96" rx="12" fill="#ffffff" stroke="#e2e6ef" stroke-width="1.5" filter="url(#sh)"/>
+  <circle cx="290" cy="134" r="6" fill="#8c4fff"/>
+  <text x="306" y="138" font-size="15" font-weight="700" fill="#1b2030">Amazon CloudFront</text>
+  <text x="286" y="164" font-size="11.5" fill="#5b6473">Origin Access Control</text>
+  <text x="286" y="182" font-size="11.5" fill="#5b6473">signs origin requests (SigV4)</text>
+
+  <!-- Lambda -->
+  <rect x="520" y="104" width="228" height="96" rx="12" fill="#ffffff" stroke="#e2e6ef" stroke-width="1.5" filter="url(#sh)"/>
+  <circle cx="542" cy="134" r="6" fill="#ed7100"/>
+  <text x="558" y="138" font-size="15" font-weight="700" fill="#1b2030">AWS Lambda</text>
+  <text x="538" y="164" font-size="11.5" fill="#5b6473">sar-drafter · Function URL</text>
+  <text x="538" y="182" font-size="11.5" fill="#5b6473">AuthType = AWS_IAM (private)</text>
+
+  <!-- Bedrock -->
+  <rect x="800" y="104" width="280" height="96" rx="12" fill="#ffffff" stroke="#e2e6ef" stroke-width="1.5" filter="url(#sh)"/>
+  <circle cx="822" cy="134" r="6" fill="#01a88d"/>
+  <text x="838" y="138" font-size="15" font-weight="700" fill="#1b2030">Amazon Bedrock</text>
+  <text x="818" y="164" font-size="11.5" fill="#5b6473">Claude Sonnet 4.5</text>
+  <text x="818" y="182" font-size="11.5" fill="#5b6473">agentic tool-use loop</text>
+
+  <!-- main arrows -->
+  <line x1="216" y1="152" x2="268" y2="152" stroke="#7c5cff" stroke-width="2.2" marker-end="url(#ah)"/>
+  <text x="242" y="142" font-size="10.5" fill="#5b6473" text-anchor="middle">HTTPS</text>
+
+  <line x1="468" y1="152" x2="520" y2="152" stroke="#7c5cff" stroke-width="2.2" marker-end="url(#ah)"/>
+  <text x="494" y="142" font-size="10.5" fill="#5b6473" text-anchor="middle">OAC · IAM</text>
+
+  <line x1="748" y1="152" x2="800" y2="152" stroke="#01a88d" stroke-width="2.2" marker-start="url(#ahs)" marker-end="url(#ah)"/>
+  <text x="774" y="140" font-size="10.5" fill="#5b6473" text-anchor="middle">tools</text>
+  <text x="774" y="174" font-size="10.5" fill="#5b6473" text-anchor="middle">cited draft</text>
+
+  <!-- read-only tools caption under Bedrock/Lambda -->
+  <text x="634" y="230" font-size="11" fill="#8a94a6" text-anchor="middle" font-style="italic">read-only investigation tools: profiles · transactions · alerts · watchlist</text>
+
+  <!-- ===== data + async ===== -->
+  <rect x="520" y="300" width="228" height="92" rx="12" fill="#ffffff" stroke="#e2e6ef" stroke-width="1.5" filter="url(#sh)"/>
+  <circle cx="542" cy="330" r="6" fill="#4053d6"/>
+  <text x="558" y="334" font-size="15" font-weight="700" fill="#1b2030">Amazon DynamoDB</text>
+  <text x="538" y="360" font-size="11.5" fill="#5b6473">drafts + jobs (TTL)</text>
+  <text x="538" y="378" font-size="11.5" fill="#5b6473">async: /draft → worker → /result</text>
+
+  <line x1="634" y1="200" x2="634" y2="300" stroke="#7c5cff" stroke-width="2.2" marker-end="url(#ah)"/>
+  <text x="648" y="254" font-size="10.5" fill="#5b6473">persist / poll</text>
+
+  <!-- ===== event-driven lane ===== -->
+  <rect x="40" y="300" width="176" height="92" rx="12" fill="#ffffff" stroke="#e2e6ef" stroke-width="1.5" filter="url(#sh)"/>
+  <circle cx="62" cy="330" r="6" fill="#3f8624"/>
+  <text x="78" y="334" font-size="15" font-weight="700" fill="#1b2030">Amazon S3</text>
+  <text x="58" y="360" font-size="11.5" fill="#5b6473">cases bucket</text>
+  <text x="58" y="378" font-size="11.5" fill="#5b6473">drop a case JSON</text>
+
+  <rect x="268" y="300" width="200" height="92" rx="12" fill="#ffffff" stroke="#e2e6ef" stroke-width="1.5" filter="url(#sh)"/>
+  <circle cx="290" cy="330" r="6" fill="#e7157b"/>
+  <text x="306" y="334" font-size="15" font-weight="700" fill="#1b2030">EventBridge</text>
+  <text x="286" y="360" font-size="11.5" fill="#5b6473">"Object Created"</text>
+  <text x="286" y="378" font-size="11.5" fill="#5b6473">rule → Lambda</text>
+
+  <line x1="216" y1="346" x2="268" y2="346" stroke="#7c5cff" stroke-width="2.2" marker-end="url(#ah)"/>
+  <line x1="468" y1="330" x2="520" y2="300" stroke="#7c5cff" stroke-width="2.2" marker-end="url(#ah)"/>
+  <text x="486" y="322" font-size="10.5" fill="#5b6473" text-anchor="middle">auto-draft</text>
+
+  <!-- ===== legend ===== -->
+  <g>
+    <rect x="40" y="446" width="330" height="34" rx="17" fill="#eef0f8" stroke="#dfe3ee"/>
+    <circle cx="62" cy="463" r="6" fill="#ed7100"/>
+    <text x="76" y="467" font-size="12" fill="#1b2030">Private: not world-accessible (IAM auth + OAC)</text>
+
+    <rect x="386" y="446" width="270" height="34" rx="17" fill="#eef0f8" stroke="#dfe3ee"/>
+    <circle cx="408" cy="463" r="6" fill="#545b64"/>
+    <text x="422" y="467" font-size="12" fill="#1b2030">Human-in-the-loop — drafts, never files</text>
+
+    <rect x="672" y="446" width="300" height="34" rx="17" fill="#eef0f8" stroke="#dfe3ee"/>
+    <circle cx="694" cy="463" r="6" fill="#01a88d"/>
+    <text x="708" y="467" font-size="12" fill="#1b2030">Citations grounded · schema-validated</text>
+  </g>
+
+  <text x="40" y="520" font-size="11.5" fill="#8a94a6">Async API keeps every request under CloudFront's 60s origin timeout. Optional S3 + EventBridge path auto-drafts on upload.</text>
+</svg>

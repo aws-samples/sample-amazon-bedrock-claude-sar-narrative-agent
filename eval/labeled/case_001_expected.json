@@ -1,0 +1,7 @@
+{
+  "case_file": "sample_data/cases/case_001_structuring.json",
+  "expected_recommendation": "recommend_file",
+  "expected_typology_keywords": ["structuring", "rapid movement"],
+  "expected_subject_names": ["Meridian Trading LLC", "Viktor Alency"],
+  "min_total_suspicious_amount_usd": 100000
+}

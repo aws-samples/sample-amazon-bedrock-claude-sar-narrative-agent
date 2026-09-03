@@ -1,0 +1,97 @@
+{
+  "case_id": "CASE-2026-00817",
+  "opened_date": "2026-07-24",
+  "priority": "High",
+  "alert_ids": ["ALRT-556231", "ALRT-556240"],
+  "analyst_notes": "Automated monitoring escalated repeated sub-CTR cash deposits followed by outbound international wires. Source of cash not yet established. Assigned for SAR determination.",
+  "subjects": [
+    {
+      "subject_id": "CUST-4471",
+      "name": "Meridian Trading LLC",
+      "type": "Business",
+      "role": "Primary account holder",
+      "kyc": {
+        "onboarded": "2024-02-11",
+        "business_type": "Import/Export - General Merchandise",
+        "expected_monthly_cash_volume_usd": 15000,
+        "expected_monthly_total_volume_usd": 75000,
+        "risk_rating": "Medium",
+        "beneficial_owners": [
+          {"name": "Viktor Alency", "ownership_pct": 100, "pep": false}
+        ]
+      },
+      "watchlist_hits": []
+    },
+    {
+      "subject_id": "CUST-8890",
+      "name": "Viktor Alency",
+      "type": "Individual",
+      "role": "Beneficial owner and sole authorized signatory",
+      "kyc": {
+        "onboarded": "2024-02-11",
+        "occupation": "Company director",
+        "risk_rating": "Medium",
+        "pep": false
+      },
+      "watchlist_hits": []
+    }
+  ],
+  "accounts": [
+    {
+      "account_id": "ACCT-99120",
+      "subject_id": "CUST-4471",
+      "type": "Business Checking",
+      "opened": "2024-02-11",
+      "currency": "USD",
+      "status": "Open"
+    }
+  ],
+  "related_parties": [
+    {
+      "party_id": "EXT-3001",
+      "name": "Zephyr Global FZE",
+      "relationship": "Wire beneficiary",
+      "jurisdiction": "Country X (bank-designated high-risk)",
+      "notes": "No prior relationship with Meridian Trading LLC on record; first payment 2026-07-18."
+    }
+  ],
+  "prior_sars": [],
+  "transactions": [
+    {"txn_id": "TXN-000019", "account_id": "ACCT-99120", "date": "2026-06-28", "type": "wire_in", "amount_usd": 12000, "channel": "wire", "counterparty": "Atlantic Wholesale Inc (US)", "location": "N/A", "notes": "Inbound domestic wire - invoice payment"},
+    {"txn_id": "TXN-000001", "account_id": "ACCT-99120", "date": "2026-07-01", "type": "cash_deposit", "amount_usd": 9200, "channel": "branch", "counterparty": null, "location": "Branch #221 Newark NJ", "notes": "Cash deposit"},
+    {"txn_id": "TXN-000002", "account_id": "ACCT-99120", "date": "2026-07-01", "type": "cash_deposit", "amount_usd": 8800, "channel": "branch", "counterparty": null, "location": "Branch #388 Jersey City NJ", "notes": "Cash deposit"},
+    {"txn_id": "TXN-000003", "account_id": "ACCT-99120", "date": "2026-07-02", "type": "cash_deposit", "amount_usd": 9500, "channel": "branch", "counterparty": null, "location": "Branch #221 Newark NJ", "notes": "Cash deposit"},
+    {"txn_id": "TXN-000004", "account_id": "ACCT-99120", "date": "2026-07-03", "type": "cash_deposit", "amount_usd": 9100, "channel": "branch", "counterparty": null, "location": "Branch #221 Newark NJ", "notes": "Cash deposit"},
+    {"txn_id": "TXN-000016", "account_id": "ACCT-99120", "date": "2026-07-05", "type": "ach_debit", "amount_usd": 2150, "channel": "ach", "counterparty": "Newark Realty Partners", "location": "N/A", "notes": "Commercial rent"},
+    {"txn_id": "TXN-000005", "account_id": "ACCT-99120", "date": "2026-07-06", "type": "cash_deposit", "amount_usd": 9700, "channel": "branch", "counterparty": null, "location": "Branch #388 Jersey City NJ", "notes": "Cash deposit"},
+    {"txn_id": "TXN-000006", "account_id": "ACCT-99120", "date": "2026-07-08", "type": "cash_deposit", "amount_usd": 8900, "channel": "branch", "counterparty": null, "location": "Branch #221 Newark NJ", "notes": "Cash deposit"},
+    {"txn_id": "TXN-000007", "account_id": "ACCT-99120", "date": "2026-07-09", "type": "cash_deposit", "amount_usd": 9400, "channel": "branch", "counterparty": null, "location": "Branch #221 Newark NJ", "notes": "Cash deposit"},
+    {"txn_id": "TXN-000008", "account_id": "ACCT-99120", "date": "2026-07-10", "type": "cash_deposit", "amount_usd": 9600, "channel": "branch", "counterparty": null, "location": "Branch #388 Jersey City NJ", "notes": "Cash deposit"},
+    {"txn_id": "TXN-000017", "account_id": "ACCT-99120", "date": "2026-07-12", "type": "card_purchase", "amount_usd": 480, "channel": "card", "counterparty": "Staples", "location": "Newark NJ", "notes": "Office supplies"},
+    {"txn_id": "TXN-000009", "account_id": "ACCT-99120", "date": "2026-07-13", "type": "cash_deposit", "amount_usd": 9000, "channel": "branch", "counterparty": null, "location": "Branch #221 Newark NJ", "notes": "Cash deposit"},
+    {"txn_id": "TXN-000010", "account_id": "ACCT-99120", "date": "2026-07-15", "type": "cash_deposit", "amount_usd": 9300, "channel": "branch", "counterparty": null, "location": "Branch #221 Newark NJ", "notes": "Cash deposit"},
+    {"txn_id": "TXN-000011", "account_id": "ACCT-99120", "date": "2026-07-16", "type": "cash_deposit", "amount_usd": 8700, "channel": "branch", "counterparty": null, "location": "Branch #388 Jersey City NJ", "notes": "Cash deposit"},
+    {"txn_id": "TXN-000012", "account_id": "ACCT-99120", "date": "2026-07-17", "type": "cash_deposit", "amount_usd": 9550, "channel": "branch", "counterparty": null, "location": "Branch #221 Newark NJ", "notes": "Cash deposit"},
+    {"txn_id": "TXN-000013", "account_id": "ACCT-99120", "date": "2026-07-18", "type": "wire_out", "amount_usd": 34900, "channel": "wire", "counterparty": "Zephyr Global FZE", "location": "Country X (high-risk)", "notes": "Outbound international wire - stated purpose 'goods'"},
+    {"txn_id": "TXN-000018", "account_id": "ACCT-99120", "date": "2026-07-20", "type": "ach_debit", "amount_usd": 3200, "channel": "ach", "counterparty": "ADP Payroll", "location": "N/A", "notes": "Payroll"},
+    {"txn_id": "TXN-000014", "account_id": "ACCT-99120", "date": "2026-07-21", "type": "wire_out", "amount_usd": 36500, "channel": "wire", "counterparty": "Zephyr Global FZE", "location": "Country X (high-risk)", "notes": "Outbound international wire - stated purpose 'goods'"},
+    {"txn_id": "TXN-000015", "account_id": "ACCT-99120", "date": "2026-07-23", "type": "wire_out", "amount_usd": 33000, "channel": "wire", "counterparty": "Zephyr Global FZE", "location": "Country X (high-risk)", "notes": "Outbound international wire - stated purpose 'goods'"},
+    {"txn_id": "TXN-000020", "account_id": "ACCT-99120", "date": "2026-07-23", "type": "fee", "amount_usd": 45, "channel": "system", "counterparty": null, "location": "N/A", "notes": "International wire fee"}
+  ],
+  "alerts": [
+    {
+      "alert_id": "ALRT-556231",
+      "date": "2026-07-17",
+      "rule": "Structuring - multiple cash deposits below the $10,000 CTR reporting threshold",
+      "account_id": "ACCT-99120",
+      "description": "12 cash deposits between $8,700 and $9,700 across two branches within 17 days; none individually triggered a Currency Transaction Report."
+    },
+    {
+      "alert_id": "ALRT-556240",
+      "date": "2026-07-24",
+      "rule": "Rapid movement of funds to high-risk jurisdiction",
+      "account_id": "ACCT-99120",
+      "description": "Cash credited to the account was moved out via three international wires to a single new beneficiary in a high-risk jurisdiction within days of deposit."
+    }
+  ]
+}
