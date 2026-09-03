@@ -8,6 +8,7 @@
 
 <br/><br/>
 
+[![Sector](https://img.shields.io/badge/Sector-BFSI%20%C2%B7%20Financial%20Crime%20%2F%20AML-ffb100.svg)](#-the-problem)
 [![License](https://img.shields.io/badge/License-MIT--0-3ecf8e.svg)](LICENSE)
 [![Python](https://img.shields.io/badge/Python-3.9%2B-3776AB.svg?logo=python&logoColor=white)](pyproject.toml)
 [![Amazon Bedrock](https://img.shields.io/badge/Amazon%20Bedrock-Claude%20Sonnet%204.5-232F3E.svg?logo=amazonaws&logoColor=FF9900)](https://aws.amazon.com/bedrock/)
