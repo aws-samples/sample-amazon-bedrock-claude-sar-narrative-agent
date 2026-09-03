@@ -41,7 +41,7 @@
   <rect x="800" y="104" width="280" height="96" rx="12" fill="#ffffff" stroke="#e2e6ef" stroke-width="1.5" filter="url(#sh)"/>
   <circle cx="822" cy="134" r="6" fill="#01a88d"/>
   <text x="838" y="138" font-size="15" font-weight="700" fill="#1b2030">Amazon Bedrock</text>
-  <text x="818" y="164" font-size="11.5" fill="#5b6473">Claude Sonnet 4.5</text>
+  <text x="818" y="164" font-size="11.5" fill="#5b6473">Claude Sonnet 5</text>
   <text x="818" y="182" font-size="11.5" fill="#5b6473">agentic tool-use loop</text>
 
   <!-- main arrows -->

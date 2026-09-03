@@ -34,7 +34,7 @@ from sar_drafter.render import render_sar_markdown
 from sar_drafter.schema import all_cited_txn_ids
 from sar_drafter.tools import CaseData, default_case_path
 
-DEFAULT_MODEL_ID = os.environ.get("SAR_MODEL_ID", "us.anthropic.claude-sonnet-4-5-20250929-v1:0")
+DEFAULT_MODEL_ID = os.environ.get("SAR_MODEL_ID", "us.anthropic.claude-sonnet-5")
 JOBS_TABLE = os.environ.get("SAR_JOBS_TABLE")
 MAX_BODY_BYTES = 512 * 1024
 

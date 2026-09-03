@@ -11,7 +11,7 @@ Every resource is tagged auto-delete=no so the account janitor does not reap it.
 
 Usage (from the repo root):
     python deploy/deploy.py
-    python deploy/deploy.py --model-id us.anthropic.claude-sonnet-4-5-20250929-v1:0
+    python deploy/deploy.py --model-id us.anthropic.claude-opus-5   # escalate to Opus 5
     python deploy/deploy.py --no-invoke        # deploy without the test invoke
 """
 
@@ -35,7 +35,7 @@ ROLE_NAME = "sar-drafter-lambda-role"
 FUNCTION_NAME = "sar-drafter"
 TABLE_NAME = "sar-drafts"
 JOBS_TABLE = "sar-jobs"
-DEFAULT_MODEL_ID = "us.anthropic.claude-sonnet-4-5-20250929-v1:0"
+DEFAULT_MODEL_ID = "us.anthropic.claude-sonnet-5"
 RUNTIME = "python3.12"
 HANDLER = "lambda_handler.handler"
 

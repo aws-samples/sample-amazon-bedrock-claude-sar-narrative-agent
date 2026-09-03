@@ -11,7 +11,7 @@
 [![Sector](https://img.shields.io/badge/Sector-BFSI%20%C2%B7%20Financial%20Crime%20%2F%20AML-ffb100.svg)](#-the-problem)
 [![License](https://img.shields.io/badge/License-MIT--0-3ecf8e.svg)](LICENSE)
 [![Python](https://img.shields.io/badge/Python-3.9%2B-3776AB.svg?logo=python&logoColor=white)](pyproject.toml)
-[![Amazon Bedrock](https://img.shields.io/badge/Amazon%20Bedrock-Claude%20Sonnet%204.5-232F3E.svg?logo=amazonaws&logoColor=FF9900)](https://aws.amazon.com/bedrock/)
+[![Amazon Bedrock](https://img.shields.io/badge/Amazon%20Bedrock-Claude%20Sonnet%205-232F3E.svg?logo=amazonaws&logoColor=FF9900)](https://aws.amazon.com/bedrock/)
 [![Human-in-the-loop](https://img.shields.io/badge/Human--in--the--loop-required-7c5cff.svg)](#-responsible-use)
 [![Citations](https://img.shields.io/badge/Citations-0%20fabricated-01a88d.svg)](#-evaluation)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-ed7100.svg?logo=github&logoColor=white)](CONTRIBUTING.md)

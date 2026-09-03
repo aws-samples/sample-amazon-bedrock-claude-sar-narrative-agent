@@ -10,12 +10,13 @@ Converse wire format. Requires boto3 and AWS credentials with bedrock:InvokeMode
 from __future__ import annotations
 
 import json
-from typing import Any, Dict, List
+from typing import Any, Dict, List, Optional
 
 from .base import AssistantTurn, LLMProvider, ToolUse
 
-# Claude 3.5 Sonnet on Bedrock. Override via SarDrafter config / --model.
-DEFAULT_MODEL_ID = "anthropic.claude-3-5-sonnet-20241022-v2:0"
+# Default: Claude Sonnet 5 via a cross-region inference profile. Override with --model.
+# (Use us.anthropic.claude-opus-5 for the most capable model.)
+DEFAULT_MODEL_ID = "us.anthropic.claude-sonnet-5"
 
 
 class BedrockProvider(LLMProvider):
@@ -26,7 +27,7 @@ class BedrockProvider(LLMProvider):
         model_id: str = DEFAULT_MODEL_ID,
         region_name: str = "us-east-1",
         max_tokens: int = 4096,
-        temperature: float = 0.0,
+        temperature: Optional[float] = None,  # omit by default; Claude 5 rejects 'temperature'
     ):
         try:
             import boto3  # noqa: F401
@@ -104,7 +105,8 @@ class BedrockProvider(LLMProvider):
             system=[{"text": system}],
             messages=self._to_converse_messages(messages),
             toolConfig=self._to_tool_config(tools),
-            inferenceConfig={"maxTokens": self.max_tokens, "temperature": self.temperature},
+            inferenceConfig=({"maxTokens": self.max_tokens} if self.temperature is None
+                             else {"maxTokens": self.max_tokens, "temperature": self.temperature}),
         )
 
         message = resp.get("output", {}).get("message", {})
