@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="docs/banner.svg" alt="AML SAR Investigation Drafter" width="100%">
+<img src="docs/banner.png" alt="AML SAR Investigation Drafter — powered by Claude on Amazon Bedrock" width="100%">
 
 <h1>AML SAR Investigation Drafter</h1>
 
