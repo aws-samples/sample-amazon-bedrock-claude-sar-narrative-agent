@@ -1,0 +1,7 @@
+{
+  "case_file": "sample_data/cases/case_002_ambiguous.json",
+  "expected_recommendation": "needs_human_review",
+  "expected_typology_keywords": [],
+  "expected_subject_names": ["Downtown Deli & Grocery LLC"],
+  "min_total_suspicious_amount_usd": 0
+}

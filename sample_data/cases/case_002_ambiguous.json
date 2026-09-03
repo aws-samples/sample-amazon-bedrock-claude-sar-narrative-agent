@@ -1,0 +1,68 @@
+{
+  "case_id": "CASE-2026-00931",
+  "opened_date": "2026-08-05",
+  "priority": "Medium",
+  "alert_ids": ["ALRT-561004"],
+  "analyst_notes": "Monitoring flagged elevated cash activity. Customer is a cash-intensive retail business. Activity is above the prior baseline but may be seasonal. Assigned for SAR determination.",
+  "subjects": [
+    {
+      "subject_id": "CUST-7220",
+      "name": "Downtown Deli & Grocery LLC",
+      "type": "Business",
+      "role": "Primary account holder",
+      "kyc": {
+        "onboarded": "2022-05-03",
+        "business_type": "Retail - Delicatessen and Grocery (cash-intensive)",
+        "expected_monthly_cash_volume_usd": 55000,
+        "expected_monthly_total_volume_usd": 90000,
+        "risk_rating": "Low",
+        "beneficial_owners": [
+          {"name": "Elena Marchetti", "ownership_pct": 100, "pep": false}
+        ]
+      },
+      "watchlist_hits": []
+    }
+  ],
+  "accounts": [
+    {
+      "account_id": "ACCT-70455",
+      "subject_id": "CUST-7220",
+      "type": "Business Checking",
+      "opened": "2022-05-03",
+      "currency": "USD",
+      "status": "Open"
+    }
+  ],
+  "related_parties": [
+    {
+      "party_id": "EXT-4400",
+      "name": "Northeast Food Distributors Inc",
+      "relationship": "Wire beneficiary",
+      "jurisdiction": "United States",
+      "notes": "Recurring supplier; prior payments on record since 2022."
+    }
+  ],
+  "prior_sars": [],
+  "transactions": [
+    {"txn_id": "TXN-100001", "account_id": "ACCT-70455", "date": "2026-07-02", "type": "cash_deposit", "amount_usd": 6200, "channel": "branch", "counterparty": null, "location": "Branch #114 Boston MA", "notes": "Daily receipts"},
+    {"txn_id": "TXN-100002", "account_id": "ACCT-70455", "date": "2026-07-05", "type": "cash_deposit", "amount_usd": 11800, "channel": "branch", "counterparty": null, "location": "Branch #114 Boston MA", "notes": "Weekend receipts - CTR filed"},
+    {"txn_id": "TXN-100003", "account_id": "ACCT-70455", "date": "2026-07-08", "type": "cash_deposit", "amount_usd": 4300, "channel": "branch", "counterparty": null, "location": "Branch #114 Boston MA", "notes": "Daily receipts"},
+    {"txn_id": "TXN-100004", "account_id": "ACCT-70455", "date": "2026-07-11", "type": "cash_deposit", "amount_usd": 9900, "channel": "branch", "counterparty": null, "location": "Branch #114 Boston MA", "notes": "Daily receipts"},
+    {"txn_id": "TXN-100005", "account_id": "ACCT-70455", "date": "2026-07-12", "type": "card_settlement", "amount_usd": 8400, "channel": "ach", "counterparty": "Card Processor", "location": "N/A", "notes": "Card sales settlement"},
+    {"txn_id": "TXN-100006", "account_id": "ACCT-70455", "date": "2026-07-15", "type": "cash_deposit", "amount_usd": 12600, "channel": "branch", "counterparty": null, "location": "Branch #114 Boston MA", "notes": "Holiday week receipts - CTR filed"},
+    {"txn_id": "TXN-100007", "account_id": "ACCT-70455", "date": "2026-07-18", "type": "cash_deposit", "amount_usd": 9800, "channel": "branch", "counterparty": null, "location": "Branch #209 Cambridge MA", "notes": "Daily receipts"},
+    {"txn_id": "TXN-100008", "account_id": "ACCT-70455", "date": "2026-07-19", "type": "wire_out", "amount_usd": 22000, "channel": "wire", "counterparty": "Northeast Food Distributors Inc", "location": "United States", "notes": "Recurring supplier payment"},
+    {"txn_id": "TXN-100009", "account_id": "ACCT-70455", "date": "2026-07-22", "type": "cash_deposit", "amount_usd": 5100, "channel": "branch", "counterparty": null, "location": "Branch #114 Boston MA", "notes": "Daily receipts"},
+    {"txn_id": "TXN-100010", "account_id": "ACCT-70455", "date": "2026-07-25", "type": "ach_debit", "amount_usd": 3800, "channel": "ach", "counterparty": "Commonwealth Utilities", "location": "N/A", "notes": "Utilities"},
+    {"txn_id": "TXN-100011", "account_id": "ACCT-70455", "date": "2026-07-26", "type": "cash_deposit", "amount_usd": 7400, "channel": "branch", "counterparty": null, "location": "Branch #114 Boston MA", "notes": "Weekend receipts"}
+  ],
+  "alerts": [
+    {
+      "alert_id": "ALRT-561004",
+      "date": "2026-07-28",
+      "rule": "Elevated cash deposit volume vs. customer baseline",
+      "account_id": "ACCT-70455",
+      "description": "Aggregate cash deposits for the month exceeded the rolling 6-month average by 38%. Two deposits over $10,000 had CTRs filed; two deposits fell just under $10,000 at two branches."
+    }
+  ]
+}

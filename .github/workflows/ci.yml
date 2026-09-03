@@ -1,0 +1,25 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  offline:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.9", "3.11", "3.12"]
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+      # The core runs fully offline with the bundled mock provider,
+      # so no dependencies and no AWS credentials are required.
+      - name: Unit tests
+        run: python tests/test_sar_drafter.py
+      - name: Evaluation harness (all sample cases, mock provider)
+        run: python eval/run_eval.py
